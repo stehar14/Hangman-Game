@@ -6,3 +6,11 @@
 #logo {
 	margin-left:55px;
 }
+
+#guessesBox,
+#answerBox,
+#lettersBox,
+#recordBox {
+	border: 10px solid black;
+	margin: 10px 0 10px 0;
+}
