@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//possible words
+		var possibleWords = ["arrow", "busy", "connect", "liver", "onions", "beetles", "monkeys", "pandas", "puppy", "thing", "formation"];
+	
+	//pick a random choice from possible words 
+		var word = possibleWords[Math.floor(Math.random()*possibleWords.length)];
+		var wordArray = word.split("");
+	//prints word to console
+		console.log(word);	
+		console.log(wordArray);
+	//declare a variable blanks to keep track of letters not yet guessed	
+		var blanks = word.length;
+	
+	//declares an empty array
+		var answer = [];
+	
+	//for loop filling empty array with an underscore for each letter in the chosen word and prints to console
+		for ( i = 0; i < word.length; i++){
+			answer[i] = "_";
+		}
+		console.log(answer);
+		console.log(blanks);
+		
+	
+	//game loop
+		
+	//user choices
+	    	document.onkeyup = function(event) {
+
+    //declares variable to convert users guesses to lower case and store them
+    			var key = event.key.toLowerCase();
+
+   	//if statement checking to see if word contains user guess
+    			
+
+    			for (k = 0; k < word.length; k++){
+    				if (key === wordArray[k]) {
+    					answer[k] = key;
+    					blanks--;
+    				}
+    				
+    				else {
+    					console.log("NOPE");
+    				}
+    				console.log(answer);
+    			}
+    		}
+    	
+
+
+
+
+	</script>
+</body>
+</html>
