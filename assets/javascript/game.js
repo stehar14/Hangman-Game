@@ -53,6 +53,12 @@
     			console.log(answer);
     			console.log("Guesses:" + guesses);
     		}
+    		if (blanks === 0) {
+    			alert("You win!!!");
+    		}
+    		else if (guesses === 0) {
+    			alert("You lose!");
+    		}
     	
     	}
 
