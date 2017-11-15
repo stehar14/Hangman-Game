@@ -1,6 +1,6 @@
-	//array containing possible words	
+	//array containing possible words and possible guesses	
 		var possibleWords = ["arrow", "busy", "connect", "liver", "onions", "beetles", "monkeys", "pandas", "puppy", "thing", "formation"];
-	
+		var possibleGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 	//set wins and losses to 0	
 		var wins = 0;
 		var losses = 0;
@@ -66,6 +66,11 @@
 						document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
 					}
 
+	//if the user enters an invalid key, alert them to choose again
+					else if (possibleGuesses.includes(key) === false) {
+						alert("That's not a valid input!")
+					}
+
 	//if the user enters in a redundant guess, alert them to choose again
 					else if (guessedLetters.includes(key)) {
 						alert("You already chose that letter!")
@@ -88,23 +93,27 @@
 	//if the user guesses all letters in the word, they win, guessed letters array resets
 	//wins increase by 1 and updates html, game restarts automatically
 				if (blanks === 0) {
-					wins++;
-					document.getElementById("wins").innerHTML = wins;
-					alert("You win!!!");
-					guessedLetters = [];
-					document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
-					game();
+					setTimeout(function() {
+						wins++;
+						document.getElementById("wins").innerHTML = wins;
+						alert("You win!!!");
+						guessedLetters = [];
+						document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
+						game();
+					}, 0);
 				}
 
 	//if the user uses all guesses, they lose, guessed letters array resets
 	//losses increase by 1 and updates html, game restarts automatically
 				else if (guesses === 0) {
-					losses++;
-					document.getElementById("losses").innerHTML = losses;
-					alert("You lose!");
-					guessedLetters= [];
-					document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
-					game();
+					setTimeout(function() {
+						losses++;
+						document.getElementById("losses").innerHTML = losses;
+						alert("You lose!");
+						guessedLetters= [];
+						document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
+						game();
+					}, 0);
 				}
 			
 			}
