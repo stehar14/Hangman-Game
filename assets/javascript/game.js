@@ -4,6 +4,71 @@
 	//set wins and losses to 0	
 		var wins = 0;
 		var losses = 0;
+		var guesses = 7;
+		var canvas = document.getElementById('stickman');
+		// Draw the canvas
+		function drawLine(context, from, to) {
+    context.beginPath();
+    context.moveTo(from[0], from[1]);
+    context.lineTo(to[0], to[1]);
+    context.stroke();
+}
+function drawCanvas() {
+    var c = canvas.getContext('2d');
+    // reset the canvas and set basic styles
+    canvas.width = canvas.width;
+    c.lineWidth = 10;
+    c.strokeStyle = 'green';
+    c.font = 'bold 24px Optimer, Arial, Helvetica, sans-serif';
+    c.fillStyle = 'red';
+    // draw the ground
+    drawLine(c, [20,190], [180,190]);
+    // start building the gallows if there's been a bad guess
+    if (guesses <= 7) {
+        // create the upright
+        c.strokeStyle = '#A52A2A';
+        drawLine(c, [30,185], [30,10]);
+        if (guesses <= 6) {
+            // create the arm of the gallows
+            c.lineTo(150,10);
+            c.stroke();
+        }
+        if (guesses <= 5) {
+            c.strokeStyle = 'black';
+            c.lineWidth = 3;
+            // draw rope
+            drawLine(c, [145,15], [145,30]);
+            // draw head
+            c.beginPath();
+            c.moveTo(160, 45);
+            c.arc(145, 45, 15, 0, (Math.PI/180)*360);
+            c.stroke(); 
+        }
+        if (guesses <= 4) {
+            // draw body
+            drawLine(c, [145,60], [145,130]);
+        }
+        if (guesses <= 3) {
+            // draw left arm
+            drawLine(c, [145,80], [110,90]);
+        }
+        if (guesses <= 2) {
+            // draw right arm
+            drawLine(c, [145,80], [180,90]);
+        }
+        if (guesses <= 1) {
+            // draw left leg
+            drawLine(c, [145,130], [130,170]);
+        }
+        if (guesses <= 0) {
+            // draw right leg and end game
+            drawLine(c, [145,130], [160,170]);
+            c.fillText('Game over', 45, 110);
+        }
+
+    }
+    }
+
 	
 	//game function
 		function game(){
@@ -18,8 +83,8 @@
 	
 	//declare blanks to keep track of letters not yet guessed and guesses to track remaining guesses	
 			var blanks = word.length;
-			var guesses = 9;
-			document.getElementById("guesses").innerHTML = 9;
+			drawCanvas();
+			document.getElementById("guesses").innerHTML = 7;
 				
 	//declares empty arrays to hold answer and guessed letter
 			var answer = [];
@@ -83,6 +148,7 @@
 						document.getElementById("guesses").innerHTML = guesses;
 						guessedLetters.push(key);
 						document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
+						drawCanvas();
 					}
 
 					/*testing
@@ -97,7 +163,8 @@
 						wins++;
 						document.getElementById("wins").innerHTML = wins;
 						alert("You win!!!");
-						guessedLetters = [];
+						guesses = 7;
+						guessedLetters = ["-"];
 						document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
 						game();
 					}, 0);
@@ -110,7 +177,8 @@
 						losses++;
 						document.getElementById("losses").innerHTML = losses;
 						alert("You lose!");
-						guessedLetters= [];
+						guesses = 7;
+						guessedLetters= ["-"];
 						document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
 						game();
 					}, 0);

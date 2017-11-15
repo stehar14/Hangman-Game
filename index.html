@@ -10,16 +10,17 @@
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
 </head>
 <body>
-	<div class="container">
+	<div id="back" class="container-fluid">
 		<div class="row">
-			<div class="col-md-2"></div>
-			<div id="logo" class="col-md-8">
-				<img src="assets/images/logo.png">
+			<div class="col-md-3"></div>
+			<div id="logo" class="col-md-6">
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-3"></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2"></div>
@@ -28,24 +29,24 @@
 			</div>
 			<div class="col-md-4">
 				<div id= "guessesBox">
-					<h2>Guesses left:  <span id="guesses">9</span></h2>
+					<h2>Guesses left:  <span id="guesses">7</span></h2>
 				</div>
+				<canvas id="stickman" style="background-color: white;">This shouldn't show.</canvas>
 				<div id="lettersBox">
 					<h2>Letters guessed: </h2>
 					<p id="guessedLetters" style="font-weight: bold; font-size: 30px; margin-left: 20px;">-</p>
 				</div>
 				<div id="answerBox">
-					<p id="answer">??????</p>
+					<p id="answer"></p>
 				</div>
 				<div id="recordBox">
-					<h2>Wins and Losses  :<span id="wins">0</span> - <span id="losses">0</span></h2>
+					<h2>Wins and Losses  :  <span id="wins">0</span> - <span id="losses">0</span></h2>
 				</div>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
 	</div>
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 
 <!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
