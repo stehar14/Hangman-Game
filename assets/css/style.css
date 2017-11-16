@@ -1,3 +1,8 @@
+/*Hangman Game Homework #3
+	Created 11/12/17
+	Last updated 11/16/17
+	Written by: Steve Harold*/
+
 #back {
 	background-image: url(../images/background.jpg);
 	background-size: 100% 100%;
@@ -5,14 +10,24 @@
 }
 #answer {
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 50px;
 	text-align: center;
 }
 
 #logo {
+	margin-top: 20px;
+	position: relative;
 	background-image: url(../images/logo.png);
-	background-size: cover;
-	height: 275px;
+	background-size: contain;
+	height: 250px;
+}
+
+#sports {
+	height: 120px; 
+	width: 190px; 
+	position: absolute; 
+	left: 180px;
+	top: -20px;
 }
 
 #guessesBox,
@@ -20,8 +35,14 @@
 #lettersBox,
 #recordBox {
 	text-align: center;
-	background-color: white;
-	color: black;
-	border: 10px dotted black;
-	margin: 10px 0 10px 0;
+	background-color: rgba(0, 0, 0, .6);
+	color: #ecee00;
+	border: 5px solid #F3F3F3;
+	margin: 15px 0 15px 0;
+}
+
+#instruct {
+	font-size: 30px;
+	margin-top: 22px;
+	text-align: center;
 }

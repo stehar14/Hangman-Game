@@ -1,7 +1,13 @@
+<!--Hangman Game Homework #3
+	Created 11/12/17
+	Last updated 11/16/17
+	Written by: Steve Harold-->
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Hangman</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,52 +21,59 @@
 	
 </head>
 <body>
-	<div id="back" class="container-fluid">
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div id="logo" class="col-md-6">
-			</div>
-			<div class="col-md-3"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-3">
-				<div id= "guessesBox">
-					<h2>Guesses left:  <span id="guesses">7</span></h2>
+	<div id="back" class="container-fluid" style="min-width: 640px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3"></div>
+				<div id="logo" class="col-xs-6">
+				<img id="sports" src="assets/images/sports.png">
 				</div>
+				<div class="col-xs-3"></div>
 			</div>
-			<div class="col-md-4">
-				<div id="lettersBox">
-					<h2>Letters guessed: </h2>
-					<p id="guessedLetters" style="font-weight: bold; font-size: 30px; margin-left: 20px;">-</p>
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="row">
+						<div class="col-xs-12">
+							<canvas id="stickman" style="height: 100%; width: 100%; background-color: rgba(125, 125, 125, .8)">This shouldn't show.</canvas>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div id="answerBox">
+								<p id="answer"></p>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-3">
-				<div id="recordBox">
-					<h2>Wins and Losses  :  <p><span id="wins">0</span> - <span id="losses">0</span></p></h2>
+				<div class="col-xs-4">
+					<div class="row">
+						<div class="col-xs-12">
+							<p id= "instruct">Type any letter to guess!</p>	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div id= "guessesBox">
+								<h2>Guesses left:</h2>
+								<p id="guesses">8</p>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div id="lettersBox">
+								<h2>Letters guessed:</h2>
+								<p id="guessedLetters" style="font-weight: bold; font-size: 30px; margin-left: 20px;">-</p>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div id="recordBox">
+								<h2>Wins and Losses:<p><span id="wins">0</span> - <span id="losses">0</span></p></h2>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
+			</div>			
 	
-
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-4">
-				<h1>Enjoy a game of Hangman. Type any letter to make your first guess. If you need more information on the game of Hangman, feel free to visit the <a href="https://en.wikipedia.org/wiki/Hangman_(game)">Wikipedia page!</a></h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<canvas id="stickman" style="background-color: white;">This shouldn't show.</canvas>
-			</div>
-			<div class="col-md-4">
-				<div id="answerBox">
-					<p id="answer"></p>
-				</div>
-			</div>
-		</div>
-				
+		</div>		
 	</div>
 			
 	
