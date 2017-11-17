@@ -7,12 +7,9 @@
 	background-image: url(../images/background.jpg);
 	background-size: 100% 100%;
 	color: white;
+	min-width: 770px;
 }
-#answer {
-	font-weight: bold;
-	font-size: 50px;
-	text-align: center;
-}
+
 
 #logo {
 	margin-top: 20px;
@@ -30,19 +27,202 @@
 	top: -20px;
 }
 
+#stickman {
+	height: 100%; 
+	width: 100%; 
+	background-color: rgba(125, 125, 125, .8);
+}
+
+#answer {
+	font-weight: bold;
+	font-size: 50px;
+	text-align: center;
+}
+
 #guessesBox,
 #answerBox,
 #lettersBox,
-#recordBox {
+#recordBox,
+#instructBox {
 	text-align: center;
 	background-color: rgba(0, 0, 0, .6);
 	color: #ecee00;
 	border: 5px solid #F3F3F3;
-	margin: 15px 0 15px 0;
+	margin: 10px 0 10px 0;
 }
+
+#instructBox {
+	margin-top: 0;
+}
+
+
 
 #instruct {
 	font-size: 30px;
-	margin-top: 22px;
+	margin-top: 10px;
 	text-align: center;
+
+}
+
+#guesses {
+	font-size: 30px;
+}
+
+#guessedLetters {
+	font-weight: bold; 
+	font-size: 30px; 
+	margin-left: 20px;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+	#logo {
+		height: 210px;
+	}
+
+	#sports {
+		height: 100px; 
+		width: 160px; 
+		position: absolute; 
+		left: 160px;
+		top: -20px;
+	}
+
+	#instruct {
+		font-size: 25px;
+	
+	}
+
+	#guesses {
+		font-size: 25px;
+	}
+
+	#guessedLetters {
+		font-weight: bold; 
+		font-size: 25px; 
+		margin-left: 20px;
+	}
+
+	#guessesBox h2,
+	#answerBox h2,
+	#lettersBox h2,
+	#recordBox h2 {
+		font-size: 25px;	
+	}
+
+	#guessesBox,
+	#answerBox,
+	#lettersBox,
+	#recordBox,
+	#instructBox {
+		
+		margin: 5px 0 5px 0;
+	}
+
+	#instructBox {
+		margin-top: 0px;
+	}
+
+}
+
+@media screen and (max-width: 992px) {
+	#logo {
+		height: 160px;
+	}
+
+	#sports {
+		height: 80px; 
+		width: 120px; 
+		position: absolute; 
+		left: 130px;
+		top: -20px;
+	}
+
+	#instruct {
+		font-size: 18px;
+	
+	}
+
+	#guesses {
+		font-size: 18px;
+	}
+
+	#guessedLetters {
+		font-weight: bold; 
+		font-size: 18px; 
+		margin-left: 20px;
+	}
+
+	#guessesBox h2,
+	#answerBox h2,
+	#lettersBox h2,
+	#recordBox h2 {
+		font-size: 18px;	
+	}
+
+	#guessesBox,
+	#answerBox,
+	#lettersBox,
+	#recordBox,
+	#instructBox {
+		
+		margin: 2px 0 2px 0;
+	}
+
+	#instructBox {
+		margin-top: 0px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#logo {
+		height: 155px;
+	}
+
+	#sports {
+		height: 80px; 
+		width: 120px; 
+		position: absolute; 
+		left: 120px;
+		top: -20px;
+	}
+
+	#instruct {
+		font-size: 14px;
+	
+	}
+
+	#guesses {
+		font-size: 14px;
+	}
+	
+	#answer {
+		font-size: 40px;
+	}
+	#guessedLetters {
+		font-weight: bold; 
+		font-size: 14px; 
+		margin-left: 20px;
+	}
+
+	#guessesBox h2,
+	#answerBox h2,
+	#lettersBox h2,
+	#recordBox h2 {
+		font-size: 14px;	
+	}
+
+	#guessesBox,
+	#answerBox,
+	#lettersBox,
+	#recordBox,
+	#instructBox {
+		
+		margin: 4px 0 4px 0;
+	}
+
+	#instructBox {
+		margin-top: 0px;
+	}
 }

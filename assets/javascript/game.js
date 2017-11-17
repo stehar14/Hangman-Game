@@ -5,12 +5,25 @@
 
 //array containing possible words and possible guesses	
 var possibleWords = ["falcons", "giants", "cowboys", "redskins", "eagles", "redskins", "jets", "patriots", "bills", "dolphins", "touchdown", "safety", "field goal", "tackle", "wide receiver", "tight end", "quarterback", "running back", "coach"];
-var possibleGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+possibleGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 //set wins and losses to 0	
 var wins = 0;
 var losses = 0;
 var guesses = 8;
 var canvas = document.getElementById('stickman');
+
+//assign sounds
+var right = new Audio();
+right.src = "./assets/audio/right.mp3";
+var wrong = new Audio();
+wrong.src = "./assets/audio/wrong.mp3";
+var win = new Audio();
+win.src = "./assets/audio/win.mp3";
+var lose = new Audio();
+lose.src = "./assets/audio/lose.mp3";
+var invalid = new Audio();
+invalid.src = "./assets/audio/invalid.mp3";
+
 // Draw the canvas
 function drawLine(context, from, to) {
 	context.beginPath();
@@ -18,6 +31,7 @@ function drawLine(context, from, to) {
 	context.lineTo(to[0], to[1]);
 	context.stroke();
 }
+
 function drawCanvas() {
 	var c = canvas.getContext('2d');
 // reset the canvas and set basic styles
@@ -118,7 +132,7 @@ function game(){
 			var key = event.key.toLowerCase();
 
 //checking to see if word contains user guess and the guessed letter hasn't been guessed yet
-			if (word.includes(key) && (guessedLetters.includes(key) === false)){
+			if (word.includes(key) && (guessedLetters.includes(key.toUpperCase()) === false)){
 				
 //check user guess against each character in the word
 				for (k = 0; k < word.length; k++){
@@ -130,6 +144,14 @@ function game(){
 //update HTML with answer, subtract one blank for each time the key matches
 					document.getElementById("answer").innerHTML = answer.join(" ");
 					blanks--;
+					setTimeout(function(){
+					    right.play();
+
+					    setTimeout(function(){
+					        right.pause();
+					        right.currentTime = 0;
+					    }, 1000);
+					}, 0);
 					}
 				}
 
@@ -140,23 +162,51 @@ function game(){
 
 //if the user enters an invalid key, alert them to choose again
 			else if (possibleGuesses.includes(key) === false) {
-				alert("That's not a valid input!")
+				setTimeout(function(){
+				    invalid.play();
+
+				    setTimeout(function(){
+				        invalid.pause();
+				        invalid.currentTime = 0;
+				    }, 1000);
+				}, 0);
+				alert("That's not a valid input!");
 			}
 
 //if the user enters in a redundant guess, alert them to choose again
-			else if (guessedLetters.includes(key)) {
-				alert("You already chose that letter!")
+			else if (guessedLetters.includes(key.toUpperCase())) {
+				setTimeout(function(){
+				    invalid.play();
+
+				    setTimeout(function(){
+				        invalid.pause();
+				        invalid.currentTime = 0;
+				    }, 1000);
+				}, 0);
+				alert("You already chose that letter!");
 			}
 
 //if the letter doesn't match and hasn;t been guessed already, it is wrong
 //subtracts a guess and updates html with new guesses left and guessed letter
 			else {
 				guesses--;
+				setTimeout(function(){
+				    wrong.play();
+
+				    setTimeout(function(){
+				        wrong.pause();
+				        wrong.currentTime = 0;
+				    }, 250);
+				}, 0);
 				document.getElementById("guesses").innerHTML = guesses;
 				guessedLetters.push(key.toUpperCase());
 				document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
 				drawCanvas();
 			}
+
+			/*testing
+			console.log(answer);
+			console.log("Guesses:" + guesses);*/
 		}
 
 //if the user guesses all letters in the word, they win, guessed letters array resets
@@ -164,6 +214,14 @@ function game(){
 		if (blanks === 0) {
 			setTimeout(function() {
 				wins++;
+				setTimeout(function(){
+				    win.play();
+
+				    setTimeout(function(){
+				        win.pause();
+				        win.currentTime = 0;
+				    }, 20000);
+				}, 0);
 				document.getElementById("wins").innerHTML = wins;
 				alert("You win!!!");
 				guesses = 8;
@@ -178,6 +236,14 @@ function game(){
 		else if (guesses === 0) {
 			setTimeout(function() {
 				losses++;
+				setTimeout(function(){
+				    lose.play();
+
+				    setTimeout(function(){
+				        lose.pause();
+				        lose.currentTime = 0;
+				    }, 2000);
+				}, 0);
 				document.getElementById("losses").innerHTML = losses;
 				alert("You lose!");
 				guesses = 8;
@@ -191,7 +257,7 @@ function game(){
 }
 
 //starts game initially
-game();
+$(document).ready(game());
 
 
 
