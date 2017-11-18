@@ -1,10 +1,10 @@
 /*Hangman Game Homework #3
 	Created 11/12/17
-	Last updated 11/17/17
+	Last updated 11/18/17
 	Written by: Steve Harold*/
 
 //array containing possible words and possible guesses	
-var possibleWords = ["falcons", "giants", "cowboys", "redskins", "eagles", "redskins", "jets", "patriots", "bills", "dolphins", "touchdown", "safety", "goal", "tackle", "receiver", "quarterback", "tennis", "coach", "basketball", "baseball", "football", "volleyball", "basket"];
+var possibleWords = ["falcons", "giants", "cowboys", "redskins", "eagles", "jets", "patriots", "bills", "dolphins", "ravens" , "bengals", "steelers", "browns", "texans", "colts", "jaguars", "titans", "broncos", "chiefs", "raiders", "chargers", "bears", "lions", "packers", "vikings", "panthers", "saints", "bucaneers", "cardinals", "rams", "fortyniners", "seahawks", "touchdown", "safety", "tackle", "receiver", "quarterback", "coach", "football", "baseball", "bat", "ball", "hit", "homerun", "single", "triple", "double", "pitcher", "catcher", "fastball", "curveball", "splitter", "slider", "umpire", "braves", "mets", "marlins", "nationals", "phillies", "cubs", "reds", "brewers", "pirates", "diamondbacks", "rockies", "dodgers", "padres", "orioles", "redsox", "yankees", "rays", "bluejays", "whitesox", "indians", "tigers", "royals", "twins", "astros", "angels", "athletics", "mariners", "rangers", "referee", "volleyball", "tennis", "soccer", "rugby", "basketball", "hockey", "goal", "assist", "steal", "block", "shot", "shutout", "stadium", "court", "arena", "pitch", "field", "basket","celtics", "nets", "knicks", "seventysixers", "raptors", "bulls", "cavaliers", "pistons", "pacers", "bucks", "hawks", "bobcats", "heat", "magic", "wizards", "nuggets", "timberwolves", "thunder", "trailblazers", "jazz", "warriors", "clippers", "lakers", "suns", "kings", "mavericks", "rockets", "grizzlies", "hornets", "spurs", "bruins", "sabres", "redwings", "canadiens", "senators", "lightning", "mapleleafs", "hurricanes", "bluejackets", "devils", "islanders", "flyers", "penguins", "capitals", "blackhawks", "avalanche", "stars", "wild", "predators", "blues", "ducks", "coyotes", "flames", "oilers", "sharks", "canucks", "goldenknights",];
 possibleGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 //set wins and losses to 0, guesses to 8, and define a variable linked to the #stickman canvas element
@@ -142,7 +142,7 @@ function game(){
 					    setTimeout(function(){
 					        right.pause();
 					        right.currentTime = 0;
-					    }, 1000);
+					    }, 100);
 					}, 0);
 					}
 				}
@@ -160,7 +160,7 @@ function game(){
 				    setTimeout(function(){
 				        invalid.pause();
 				        invalid.currentTime = 0;
-				    }, 1000);
+				    }, 500);
 				}, 0);
 				alert("That's not a valid input!");
 			}
@@ -173,7 +173,7 @@ function game(){
 				    setTimeout(function(){
 				        invalid.pause();
 				        invalid.currentTime = 0;
-				    }, 1000);
+				    }, 500);
 				}, 0);
 				alert("You already chose that letter!");
 			}
@@ -188,7 +188,7 @@ function game(){
 				    setTimeout(function(){
 				        wrong.pause();
 				        wrong.currentTime = 0;
-				    }, 250);
+				    }, 100);
 				}, 0);
 				document.getElementById("guesses").innerHTML = guesses;
 				guessedLetters.push(key.toUpperCase());
