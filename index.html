@@ -1,19 +1,22 @@
 <!--Hangman Game Homework #3
 	Created 11/12/17
-	Last updated 11/16/17
+	Last updated 11/17/17
 	Written by: Steve Harold-->
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Hangman</title>
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
+	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+	
+	<!--My CSS file-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<!-- jQuery library -->
@@ -21,8 +24,10 @@
 	
 </head>
 <body>
+	<!--Main content container-->
 	<div id="back" class="container-fluid">
 		<div class="container">
+	<!--Header logo-->
 			<div class="row">
 				<div class="col-xs-3"></div>
 				<div id="logo" class="col-xs-6">
@@ -30,14 +35,17 @@
 				</div>
 				<div class="col-xs-3"></div>
 			</div>
+	<!--Game-->
 			<div class="row">
 				<div class="col-xs-8">
 					<div class="row">
+	<!--Canvas with stick figure-->					
 						<div class="col-xs-12">
 							<canvas id="stickman">This shouldn't show.</canvas>
 						</div>
 					</div>
 					<div class="row">
+	<!--Answer container showing blanks with letters filled in as they are guessed-->
 						<div class="col-xs-12">
 							<div id="answerBox">
 								<p id="answer"></p>
@@ -47,6 +55,7 @@
 				</div>
 				<div class="col-xs-4">
 					<div class="row">
+	<!--Instruction message-->
 						<div class="col-xs-12">
 							<div id="instructBox">
 								<h2 id= "instruct">Type any letter to guess!</h2>
@@ -54,18 +63,21 @@
 						</div>
 					</div>
 					<div class="row">
+	<!--Guesses remaining counter-->
 						<div class="col-xs-12">
 							<div id= "guessesBox">
 								<h2>Guesses left:</h2>
-								<p id="guesses">8</p>
+								<p id="guesses">9</p>
 							</div>
 						</div>
+	<!--Letters guessed-->
 						<div class="col-xs-12">
 							<div id="lettersBox">
 								<h2>Letters guessed:</h2>
 								<p id="guessedLetters">-</p>
 							</div>
 						</div>
+	<!--Win loss record-->
 						<div class="col-xs-12">
 							<div id="recordBox">
 								<h2>Wins and Losses:<p><span id="wins">0</span> - <span id="losses">0</span></p></h2>
@@ -80,9 +92,10 @@
 			
 	
 
-<!-- Latest compiled and minified JavaScript -->
+	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
+	<!--My JS file-->
 	<script src="assets/javascript/game.js"></script>
 </body>
 </html>

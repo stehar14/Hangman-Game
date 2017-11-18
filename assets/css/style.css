@@ -1,8 +1,9 @@
 /*Hangman Game Homework #3
 	Created 11/12/17
-	Last updated 11/16/17
+	Last updated 11/17/17
 	Written by: Steve Harold*/
 
+/* main container*/ 
 #back {
 	background-image: url(../images/background.jpg);
 	background-size: 100% 100%;
@@ -10,7 +11,7 @@
 	min-width: 770px;
 }
 
-
+/*logo images*/
 #logo {
 	margin-top: 20px;
 	position: relative;
@@ -21,24 +22,27 @@
 
 #sports {
 	height: 120px; 
-	width: 190px; 
+	width: 210px; 
 	position: absolute; 
 	left: 180px;
 	top: -20px;
 }
 
+/*canvas*/
 #stickman {
 	height: 100%; 
 	width: 100%; 
 	background-color: rgba(125, 125, 125, .8);
 }
 
+/*answer text*/
 #answer {
 	font-weight: bold;
 	font-size: 50px;
 	text-align: center;
 }
 
+/*game stat divs*/
 #guessesBox,
 #answerBox,
 #lettersBox,
@@ -55,19 +59,19 @@
 	margin-top: 0;
 }
 
-
-
+/*instruction text*/
 #instruct {
 	font-size: 30px;
 	margin-top: 10px;
 	text-align: center;
-
 }
 
+/*guesses remaining text*/
 #guesses {
 	font-size: 30px;
 }
 
+/*guessed letters text*/
 #guessedLetters {
 	font-weight: bold; 
 	font-size: 30px; 
@@ -75,8 +79,11 @@
 }
 
 
+/*media queries for 1200-768px widths*/
 
+/*1200+px*/
 @media screen and (max-width: 1200px) {
+	
 	#logo {
 		height: 210px;
 	}
@@ -84,26 +91,12 @@
 	#sports {
 		height: 100px; 
 		width: 160px; 
-		position: absolute; 
 		left: 160px;
-		top: -20px;
 	}
 
-	#instruct {
-		font-size: 25px;
-	
-	}
-
-	#guesses {
-		font-size: 25px;
-	}
-
-	#guessedLetters {
-		font-weight: bold; 
-		font-size: 25px; 
-		margin-left: 20px;
-	}
-
+	#instruct,
+	#guesses,
+	#guessedLetters,
 	#guessesBox h2,
 	#answerBox h2,
 	#lettersBox h2,
@@ -115,17 +108,16 @@
 	#answerBox,
 	#lettersBox,
 	#recordBox,
-	#instructBox {
-		
+	#instructBox {		
 		margin: 5px 0 5px 0;
 	}
 
 	#instructBox {
 		margin-top: 0px;
 	}
-
 }
 
+/*992-1200px*/
 @media screen and (max-width: 992px) {
 	#logo {
 		height: 160px;
@@ -134,26 +126,12 @@
 	#sports {
 		height: 80px; 
 		width: 120px; 
-		position: absolute; 
 		left: 130px;
-		top: -20px;
 	}
 
-	#instruct {
-		font-size: 18px;
-	
-	}
-
-	#guesses {
-		font-size: 18px;
-	}
-
-	#guessedLetters {
-		font-weight: bold; 
-		font-size: 18px; 
-		margin-left: 20px;
-	}
-
+	#instruct,
+	#guesses,
+	#guessedLetters,
 	#guessesBox h2,
 	#answerBox h2,
 	#lettersBox h2,
@@ -165,8 +143,7 @@
 	#answerBox,
 	#lettersBox,
 	#recordBox,
-	#instructBox {
-		
+	#instructBox {		
 		margin: 2px 0 2px 0;
 	}
 
@@ -175,43 +152,32 @@
 	}
 }
 
-@media screen and (max-width: 768px) {
+/*768-992px*/
+@media screen and (max-width: 767px) {
 	#logo {
 		height: 155px;
 	}
 
 	#sports {
 		height: 80px; 
-		width: 120px; 
-		position: absolute; 
+		width: 120px;  
 		left: 120px;
-		top: -20px;
-	}
-
-	#instruct {
-		font-size: 14px;
-	
-	}
-
-	#guesses {
-		font-size: 14px;
 	}
 	
-	#answer {
-		font-size: 40px;
-	}
-	#guessedLetters {
-		font-weight: bold; 
-		font-size: 14px; 
-		margin-left: 20px;
-	}
-
+	#instruct,
+	#guesses,
+	#guessedLetters,
 	#guessesBox h2,
 	#answerBox h2,
 	#lettersBox h2,
 	#recordBox h2 {
 		font-size: 14px;	
 	}
+	
+	#answer {
+		font-size: 40px;
+	}
+	
 
 	#guessesBox,
 	#answerBox,
