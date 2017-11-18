@@ -2,6 +2,16 @@
 	Created 11/12/17
 	Last updated 11/18/17
 	Written by: Steve Harold*/
+$( function() {
+    $( "#dialog-message" ).dialog({
+      modal: true,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  } );
 
 //array containing possible words and possible guesses	
 var possibleWords = ["falcons", "giants", "cowboys", "redskins", "eagles", "jets", "patriots", "bills", "dolphins", "ravens" , "bengals", "steelers", "browns", "texans", "colts", "jaguars", "titans", "broncos", "chiefs", "raiders", "chargers", "bears", "lions", "packers", "vikings", "panthers", "saints", "bucaneers", "cardinals", "rams", "fortyniners", "seahawks", "touchdown", "safety", "tackle", "receiver", "quarterback", "coach", "football", "baseball", "bat", "ball", "hit", "homerun", "single", "triple", "double", "pitcher", "catcher", "fastball", "curveball", "splitter", "slider", "umpire", "braves", "mets", "marlins", "nationals", "phillies", "cubs", "reds", "brewers", "pirates", "diamondbacks", "rockies", "dodgers", "padres", "orioles", "redsox", "yankees", "rays", "bluejays", "whitesox", "indians", "tigers", "royals", "twins", "astros", "angels", "athletics", "mariners", "rangers", "referee", "volleyball", "tennis", "soccer", "rugby", "basketball", "hockey", "goal", "assist", "steal", "block", "shot", "shutout", "stadium", "court", "arena", "pitch", "field", "basket","celtics", "nets", "knicks", "seventysixers", "raptors", "bulls", "cavaliers", "pistons", "pacers", "bucks", "hawks", "bobcats", "heat", "magic", "wizards", "nuggets", "timberwolves", "thunder", "trailblazers", "jazz", "warriors", "clippers", "lakers", "suns", "kings", "mavericks", "rockets", "grizzlies", "hornets", "spurs", "bruins", "sabres", "redwings", "canadiens", "senators", "lightning", "mapleleafs", "hurricanes", "bluejackets", "devils", "islanders", "flyers", "penguins", "capitals", "blackhawks", "avalanche", "stars", "wild", "predators", "blues", "ducks", "coyotes", "flames", "oilers", "sharks", "canucks", "goldenknights",];
@@ -154,6 +164,9 @@ function game(){
 
 //if the user enters an invalid key, alert them to choose again
 			else if (possibleGuesses.includes(key) === false) {
+				$('#alertModal').find('.modal-header h4').text("Oh no!");
+    			$('#alertModal').find('.modal-body p').text("That's not a valid input!");
+   				$('#alertModal').modal('show');
 				setTimeout(function(){
 				    invalid.play();
 
@@ -162,11 +175,13 @@ function game(){
 				        invalid.currentTime = 0;
 				    }, 500);
 				}, 0);
-				alert("That's not a valid input!");
 			}
 
 //if the user enters in a redundant guess, alert them to choose again
 			else if (guessedLetters.includes(key.toUpperCase())) {
+				$('#alertModal').find('.modal-header h4').text("Whoops!");
+				$('#alertModal').find('.modal-body p').text("You already guessed that letter!");
+   				$('#alertModal').modal('show');
 				setTimeout(function(){
 				    invalid.play();
 
@@ -175,7 +190,6 @@ function game(){
 				        invalid.currentTime = 0;
 				    }, 500);
 				}, 0);
-				alert("You already chose that letter!");
 			}
 
 //if the letter doesn't match and hasn't been guessed already, it is wrong
@@ -211,7 +225,9 @@ function game(){
 				    }, 2000);
 				}, 0);
 				document.getElementById("wins").innerHTML = wins;
-				alert("You win!!!");
+				$('#alertModal').find('.modal-header h4').text("Amazing!");
+				$('#alertModal').find('.modal-body p').text("Congratulations! You're a winner!");
+   				$('#alertModal').modal('show')
 				guesses = 9;
 				guessedLetters = ["-"];
 				document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
@@ -233,7 +249,9 @@ function game(){
 				    }, 2000);
 				}, 0);
 				document.getElementById("losses").innerHTML = losses;
-				alert("You lose!");
+				$('#alertModal').find('.modal-header h4').text("Oh no!");
+				$('#alertModal').find('.modal-body p').text("Sorry, you lost! Try again!");
+   				$('#alertModal').modal('show')
 				guesses = 9;
 				guessedLetters= ["-"];
 				document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
