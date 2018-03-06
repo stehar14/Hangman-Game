@@ -1,5 +1,5 @@
-# Hangman-Game
-Link to game: https://mighty-spire-82198.herokuapp.com/
+# Hangman Game
+Link to game: https://sports-hangman.herokuapp.com/
 
 This is a sports related Hangman game containing words spanning:
 + football
